@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'csvs/index'
+  get 'csvs/new'
   resources :books
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -13,4 +15,8 @@ Rails.application.routes.draw do
   end
 
   root to: 'home#index'
+
+  resources :csvs, only: %i[index new create] do
+    resources :books
+  end
 end

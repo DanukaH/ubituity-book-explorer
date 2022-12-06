@@ -1,10 +1,15 @@
-<h1>Editing book</h1>
+<h2>Edit Book: <%= @book.title if @book.present? %></h2>
 
-<%= render "form", book: @book %>
+<%= form_with model: @book, url: csv_book_path(@csv, @book) do |form| %>
+  <%= render "form", { form: form } %>
 
-<br>
-
-<div>
-  <%= link_to "Show this book", @book %> |
-  <%= link_to "Back to books", books_path %>
-</div>
+  <div class="row d-flex position-sticky bottom-0 bg-white justify-content-center zindex-sticky">
+    <div class="col" >
+      <div class="d-grid gap-2 d-md-flex justify-content-start">
+        <%= form.submit("Save Changes", class: "btn btn-success") %>
+        <%= link_to "Show", csv_book_path(@csv, @book), class:"btn btn-primary" %>
+        <%= link_to "Back", csv_books_path(@csv), class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
+<% end %>

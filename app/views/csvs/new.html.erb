@@ -1,0 +1,30 @@
+<h2>Import CSV File</h2>
+
+<div class="lead fw-normal">
+  <p>
+    This service will facilitate a registered user to upload and store data of a CSV file containing a list of books.
+    The CSV should be consists of following headers.
+  </p>
+  <ul>
+    <li>Book title</li>
+    <li>Book author</li>
+    <li>Date published</li>
+    <li>Unique identifier for the book</li>
+    <li>Publisher name</li>
+  </ul>
+</div>
+
+<div class="container overflow-hidden">
+  <div class="row mt-5">
+    <%= form_with model: @csv do |form| %>
+      <div class="row d-flex zindex-sticky w-50">
+        <div class="col" >
+          <div class="d-grid gap-5 d-md-flex justify-content-start">
+            <%= form.file_field :csv_file, accept: '.csv', class:"form-control" %>
+            <%= form.button('Import', class:"btn btn-primary") %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

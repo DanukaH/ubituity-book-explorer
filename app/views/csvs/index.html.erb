@@ -1,0 +1,35 @@
+
+<h2>
+  Uploaded CSV files by <%= current_user.full_name %>
+</h2>
+<div class="row d-flex zindex-sticky">
+  <div class="col" >
+    <div class="d-grid py-5 d-md-flex justify-content-start">
+      <%= link_to 'Upload New CSV File', new_csv_path, class: "btn btn-success" %>
+    </div>
+  </div>
+</div>
+
+
+<div class="card shadow mb-4 mt-5">
+  <div class="card-body">
+    <table class="table table-sm">
+      <thead>
+      <tr>
+        <th scope="col">CSV File Name</th>
+        <th scope="col">URL</th>
+        <th scope="col">Date Uploaded</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @csvs.each do |csv| %>
+        <tr>
+          <td><%= link_to(csv.file_name, csv_books_path(csv)) %></td>
+          <td><%= link_to('Download', csv.url) %></td>
+          <td><%= csv.created_at.to_date %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

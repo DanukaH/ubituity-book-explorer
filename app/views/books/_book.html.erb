@@ -1,22 +1,22 @@
-<div id="<%= dom_id book %>">
-  <p>
-    <strong>Title:</strong>
-    <%= book.title %>
-  </p>
-
-  <p>
-    <strong>Author:</strong>
-    <%= book.author %>
-  </p>
-
-  <p>
-    <strong>Date published:</strong>
-    <%= book.date_published %>
-  </p>
-
-  <p>
-    <strong>Publisher name:</strong>
-    <%= book.publisher_name %>
-  </p>
-
+<div class="w-100 mx-auto", id="<%= dom_id book %>">
+  <div class="card shadow mt-4 mb-5">
+    <div class="card-body">
+      <dl class="row">
+        <dt class="col-sm-3">Title</dt>
+        <dd class="col-sm-9"><%= book.title %></dd>
+      </dl>
+      <dl class="row">
+        <dt class="col-sm-3">Author</dt>
+        <dd class="col-sm-9"><%= book.author %></dd>
+      </dl>
+      <dl class="row">
+        <dt class="col-sm-3">Date published</dt>
+        <dd class="col-sm-9"><%= book.date_published.to_date %></dd>
+      </dl>
+      <dl class="row">
+        <dt class="col-sm-3">Publisher name</dt>
+        <dd class="col-sm-9"><%= book.publisher_name %></dd>
+      </dl>
+    </div>
+  </div>
 </div>

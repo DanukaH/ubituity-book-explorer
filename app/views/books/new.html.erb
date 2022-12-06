@@ -1,9 +1,14 @@
-<h1>New book</h1>
+<h2>Add New Book</h2>
 
-<%= render "form", book: @book %>
+<%= form_with model: @book, url: csv_books_path(@csv) do |form| %>
+  <%= render "form", { form: form } %>
 
-<br>
-
-<div>
-  <%= link_to "Back to books", books_path %>
-</div>
+  <div class="row d-flex position-sticky bottom-0 bg-white justify-content-center zindex-sticky">
+    <div class="col" >
+      <div class="d-grid gap-2 d-md-flex justify-content-start">
+        <%= form.submit("Save", class: "btn btn-success") %>
+        <%= link_to "Back", csv_books_path(@csv), class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
+<% end %>

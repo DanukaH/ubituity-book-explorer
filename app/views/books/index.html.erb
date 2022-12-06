@@ -1,14 +1,27 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Books</h1>
-
 <div id="books">
-  <% @books.each do |book| %>
-    <%= render book %>
-    <p>
-      <%= link_to "Show this book", book %>
-    </p>
-  <% end %>
+  <div class="container overflow-hidden">
+    <div class="row mt-5">
+      <h2>CSV file: <%= @csv.file_name %></h2>
+      <div class="lead fw-normal">
+        <p>
+          Welcome to the Books Section.
+        </p>
+        <p>
+          In this section, users can see a list of books uploaded with the above named CSV file. Users then can view,
+          edit and delete individual books from the list. <strong>Please, note that the delete action will not be reversed.</strong>
+        </p>
+      </div>
+      <div class="row d-flex zindex-sticky">
+        <div class="col" >
+          <div class="d-grid py-5 d-md-flex justify-content-start">
+            <%= link_to "Back", csvs_path, class:"btn btn-secondary" %>
+          </div>
+        </div>
+      </div>
+      <div>
+        <%= render 'books/books_table', books: @books, description: "No Books entered yet" %>
+      </div>
+    </div>
+  </div>
 </div>
 
-<%= link_to "New book", new_book_path %>

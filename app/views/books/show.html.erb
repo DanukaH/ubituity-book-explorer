@@ -1,10 +1,13 @@
-<p style="color: green"><%= notice %></p>
+<h2>Book Details: <%= @book.title if @book.present? %></h2>
 
 <%= render @book %>
 
-<div>
-  <%= link_to "Edit this book", edit_book_path(@book) %> |
-  <%= link_to "Back to books", books_path %>
-
-  <%= button_to "Destroy this book", @book, method: :delete %>
+<div class="row d-flex position-sticky bottom-0 bg-white justify-content-center zindex-sticky">
+  <div class="col" >
+    <div class="d-grid gap-2 d-md-flex justify-content-start">
+      <%= link_to "Edit", edit_csv_book_path(@csv, @book), class:"btn btn-dark" %>
+      <%= link_to 'Delete', csv_book_path(@csv, @book), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+      <%= link_to "Back", csv_books_path(@csv), class: "btn btn-secondary" %>
+    </div>
+  </div>
 </div>
