@@ -36,7 +36,7 @@ class CsvsController < ApplicationController
   private
 
   def csv_params
-    params.require(:csv).permit!
+    params.require(:csv).permit(:csv_file)
   end
 
   def invalid_uuid(error)
