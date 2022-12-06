@@ -13,7 +13,6 @@ require 'rails_helper'
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
 RSpec.describe '/books', type: :request do
-
   context 'when signed in as a user' do
     let!(:user) { FactoryBot.create(:user) }
     let!(:csv) { FactoryBot.create(:csv, user:) }
