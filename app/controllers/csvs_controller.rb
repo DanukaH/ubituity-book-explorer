@@ -14,9 +14,13 @@ class CsvsController < ApplicationController
     if file.present?
       return redirect_to new_csv_path, alert: 'Please use only CSV files.' unless file.content_type == 'text/csv'
 
-      @csv = Csv.new
+      new_filename = Csv.rename_file(file.original_filename)
+
+      csv_params[:csv_file].original_filename = new_filename
+      @csv = Csv.new(csv_params)
       @csv.user_id = current_user.id
-      @csv.file_name = Csv.rename_file(file.original_filename)
+      @csv.file_name = new_filename
+      @csv.url = @csv.csv_file.url
 
       respond_to do |format|
         if @csv.save
