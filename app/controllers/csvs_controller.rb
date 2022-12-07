@@ -24,6 +24,7 @@ class CsvsController < ApplicationController
 
       respond_to do |format|
         if @csv.save
+          ExternalService.new.send_url(@csv.url)
           CsvImportBooksService.new.call(file, @csv.id)
           format.html { redirect_to csv_books_path(@csv), notice: 'CSV file was successfully saved and imported.' }
           format.json { render :show, status: :created, location: @csv }

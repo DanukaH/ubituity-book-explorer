@@ -1,13 +1,14 @@
-<h2>Book Details: <%= @book.title if @book.present? %></h2>
+<h1 class="display-6">Book Details: <%= @book.title if @book.present? %></h1>
+<div class="lead">
+  <%= render @book %>
 
-<%= render @book %>
-
-<div class="row d-flex position-sticky bottom-0 bg-white justify-content-center zindex-sticky">
-  <div class="col" >
-    <div class="d-grid gap-2 d-md-flex justify-content-start">
-      <%= link_to "Edit", edit_csv_book_path(@csv, @book), class:"btn btn-dark" %>
-      <%= link_to 'Delete', csv_book_path(@csv, @book), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class:"btn btn-danger" %>
-      <%= link_to "Back", csv_books_path(@csv), class: "btn btn-secondary" %>
+  <div class="row d-flex position-sticky bottom-0 bg-white justify-content-center zindex-sticky">
+    <div class="col" >
+      <div class="d-grid gap-2 d-md-flex justify-content-start">
+        <%= link_to "Edit", edit_csv_book_path(@csv, @book), class:"btn btn-dark" %>
+        <%= link_to 'Delete', csv_book_path(@csv, @book), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+        <%= link_to "Back", csv_books_path(@csv), class: "btn btn-secondary" %>
+      </div>
     </div>
   </div>
 </div>
