@@ -69,8 +69,8 @@ RSpec.describe '/books', type: :request do
       end
     end
 
-    xdescribe 'POST /create' do
-      context 'with valid parameters' do
+    describe 'POST /create' do
+      xcontext 'with valid parameters' do
         it 'creates a new Book' do
           expect do
             post csv_books_path(csv), params: { book: valid_attributes }
