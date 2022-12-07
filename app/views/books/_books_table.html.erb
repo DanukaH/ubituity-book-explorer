@@ -16,7 +16,7 @@
           <tr>
             <td><%= book.title %></td>
             <td><%= book.author %></td>
-            <td><%= book.date_published.to_date %></td>
+            <td><%= book.date_published.strftime('%a, %d %b %Y') %></td>
             <td><%= book.publisher_name %></td>
             <td>
               <%= link_to 'Show', csv_book_path(@csv, book), class:"btn btn-primary" %>

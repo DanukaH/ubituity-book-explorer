@@ -17,7 +17,6 @@
       <thead class="lead fw-bolder">
       <tr>
         <th scope="col">CSV File Name</th>
-        <th scope="col">URL</th>
         <th scope="col">Date Uploaded</th>
       </tr>
       </thead>
@@ -25,8 +24,7 @@
       <% @csvs.each do |csv| %>
         <tr>
           <td><%= link_to(csv.file_name, csv_books_path(csv)) %></td>
-          <td><%= link_to('Download', csv.url) %></td>
-          <td><%= csv.created_at.to_date %></td>
+          <td><%= csv.created_at.strftime('%a, %d %b %Y %H:%M:%S') %></td>
         </tr>
       <% end %>
       </tbody>
