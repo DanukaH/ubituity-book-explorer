@@ -4,7 +4,6 @@ require_relative 'boot'
 
 require 'rails/all'
 require 'csv'
-require 'fog/aws'
 require 'uri'
 require 'net/http'
 

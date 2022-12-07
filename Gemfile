@@ -51,12 +51,11 @@ gem 'bootsnap', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-gem 'aws-sdk'
+gem 'carrierwave-aws'
+gem 'carrierwave', '~> 1.0'
 gem 'aws-sdk-rails'
-gem 'carrierwave'
-gem 'devise'
 gem 'figaro'
-gem 'fog-aws'
+gem 'devise'
 gem 'mysql-binuuid-rails'
 
 group :development, :test do
