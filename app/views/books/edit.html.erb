@@ -1,4 +1,4 @@
-<h2>Edit Book: <%= @book.title if @book.present? %></h2>
+<h1 class="display-6">Edit Book: <%= @book.title if @book.present? %></h1>
 
 <%= form_with model: @book, url: csv_book_path(@csv, @book) do |form| %>
   <%= render "form", { form: form } %>

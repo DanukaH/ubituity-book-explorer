@@ -1,12 +1,12 @@
 <div id="books">
   <div class="container overflow-hidden">
     <div class="row mt-5">
-      <h2>CSV file: <%= @csv.file_name %></h2>
+      <h1 class="display-6">CSV file: <%= @csv.file_name %></h1>
       <div class="lead fw-normal">
-        <p>
+        <p class="lead">
           Welcome to the Books Section.
         </p>
-        <p>
+        <p class="lead">
           In this section, users can see a list of books uploaded with the above named CSV file. Users then can view,
           edit and delete individual books from the list. <strong>Please, note that the delete action will not be reversed.</strong>
         </p>
@@ -19,7 +19,7 @@
         </div>
       </div>
       <div>
-        <%= render 'books/books_table', books: @books, description: "No Books entered yet" %>
+        <%= render 'books/books_table', books: @books, description: "No valid entries saved with this csv file. Please review and upload again." %>
       </div>
     </div>
   </div>

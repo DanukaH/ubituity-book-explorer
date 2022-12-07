@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="container">
-    <a class="navbar-brand" href="/">Ubiquity Book Explorer</a>
+<nav class="navbar navbar-expand-lg py-4 navbar-dark bg-primary">
+  <div class="container lead">
+    <a class="navbar-brand fw-bolder" href="/">Ubiquity Book Explorer</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -18,7 +18,7 @@
       <ul class="navbar-nav ms-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <div class="nav-link disabled">
+            <div class="nav-link disabled fw-bolder">
               Logged in as <strong><%= current_user.full_name %></strong>.
             </div>
           </li>

@@ -2,7 +2,7 @@
   <div class="card shadow mt-4 mb-5 mx-auto">
     <div class="card-body">
       <table class="table table-hover">
-        <thead>
+        <thead class="lead fw-bolder">
         <tr>
           <th scope="col">Bok Title</th>
           <th scope="col">Author</th>
@@ -11,7 +11,7 @@
           <th scope="col"></th>
         </tr>
         </thead>
-        <tbody>
+        <tbody class="lead">
         <% books.each do |book| %>
           <tr>
             <td><%= book.title %></td>
@@ -30,5 +30,5 @@
     </div>
   </div>
 <% else %>
-  <p class="mt-4 mb-5"><%= description %></p>
+  <h5 class="mt-4 mb-5 text-danger"><%= description %></h5>
 <% end %>
