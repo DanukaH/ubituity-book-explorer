@@ -2,7 +2,7 @@ class CsvsController < ApplicationController
   rescue_from MySQLBinUUID::InvalidUUID, with: :invalid_uuid
 
   def index
-    @csvs = current_user.csvs
+    @csvs = current_user.csvs.order(created_at: :desc)
   end
 
   def new
