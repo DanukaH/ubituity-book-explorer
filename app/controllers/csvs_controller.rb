@@ -16,7 +16,10 @@ class CsvsController < ApplicationController
 
       new_filename = Csv.rename_file(file.original_filename)
 
+      # new file name
       csv_params[:csv_file].original_filename = new_filename
+
+      # building csv object
       @csv = Csv.new(csv_params)
       @csv.user_id = current_user.id
       @csv.file_name = new_filename
@@ -24,7 +27,9 @@ class CsvsController < ApplicationController
 
       respond_to do |format|
         if @csv.save
+          # send S3 link to the request bin
           ExternalService.new.send_url(@csv.url)
+          # Run csv import
           CsvImportBooksService.new.call(file, @csv.id)
           format.html { redirect_to csv_books_path(@csv), notice: 'CSV file was successfully saved and imported.' }
           format.json { render :show, status: :created, location: @csv }

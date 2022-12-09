@@ -1,5 +1,5 @@
 class CsvImportBooksService
-
+  # Method call will extract data from each row and create books
   def call(file, csv_id)
     csv = CSV.parse(File.open(file), headers: true, col_sep: ',')
     csv.each do |row|
