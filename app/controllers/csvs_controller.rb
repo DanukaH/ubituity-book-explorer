@@ -27,10 +27,9 @@ class CsvsController < ApplicationController
 
       respond_to do |format|
         if @csv.save
-          # send S3 link to the request bin
-          ExternalService.new.send_url(@csv.url)
           # Run csv import
           CsvImportBooksService.new.call(file, @csv.id)
+
           format.html { redirect_to csv_books_path(@csv), notice: 'CSV file was successfully saved and imported.' }
           format.json { render :show, status: :created, location: @csv }
         else
@@ -38,6 +37,9 @@ class CsvsController < ApplicationController
           format.json { render json: @csv.errors, status: :unprocessable_entity }
         end
       end
+
+      # send S3 link to the request bin
+      ExternalService.new.send_url(@csv.url) if @csv.url.present?
     else
       redirect_to new_csv_path, alert: 'Please select a file.'
     end
